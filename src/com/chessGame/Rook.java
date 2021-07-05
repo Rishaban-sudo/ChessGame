@@ -6,9 +6,11 @@ import java.util.List;
 
 public class Rook extends Piece {
 
+    private int points = 5;
     Rook(boolean isWhite) {
         super(isWhite);
     }
+
 
     @Override
     public boolean isValidMove(Board board, Square start, Square end) {
@@ -21,6 +23,11 @@ public class Rook extends Piece {
 
         return (x == 0 && y > 0) || (y == 0 && x > 0);
 
+    }
+
+    @Override
+    public int getPoints() {
+        return points;
     }
 
     private List<MoveStrategy> strategies = new ArrayList<>();

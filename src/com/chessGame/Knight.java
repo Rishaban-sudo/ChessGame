@@ -6,9 +6,13 @@ import java.util.List;
 
 public class Knight extends Piece {
 
+    private int points = 3;
+
     Knight(boolean isWhite){
         super(isWhite);
     }
+
+
 
     @Override
     public boolean isValidMove(Board board, Square start, Square end) {
@@ -20,6 +24,11 @@ public class Knight extends Piece {
         int y=Math.abs(start.getY()- end.getY());
 
         return x*y==2;
+    }
+
+    @Override
+    public int getPoints() {
+        return points;
     }
 
     private List<MoveStrategy> strategies = new ArrayList<>();

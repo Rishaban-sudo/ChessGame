@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Queen extends Piece{
 
+    private int points = 9;
     Queen(boolean isWhite) {
         super(isWhite);
     }
@@ -19,6 +20,11 @@ public class Queen extends Piece{
         int y=Math.abs(start.getY()- end.getY());
 
         return (x==y) || (x==0 && y>0) || (y==0 && x>0);
+    }
+
+    @Override
+    public int getPoints() {
+        return points;
     }
 
     private List<MoveStrategy> strategies = new ArrayList<>();

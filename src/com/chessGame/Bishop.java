@@ -1,12 +1,19 @@
 package com.chessGame;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bishop extends Piece{
 
+    private int points=3;
     Bishop(boolean isWhite) {
         super(isWhite);
+    }
+
+    @Override
+    public int getPoints() {
+        return points;
     }
 
     @Override
@@ -21,9 +28,24 @@ public class Bishop extends Piece{
         return x==y;
     }
 
+    private List<MoveStrategy> strategies = new ArrayList<>();
+
+    {
+        strategies.add(new BishopStrategy());
+    }
+
+
+
     @Override
     public List<Square> getValidMoves(Board board, Square currentSquare) {
-        return null;
+        List<Square> allPossibleSquares = new ArrayList<>();
+
+
+        for (MoveStrategy strategy : strategies) {
+            allPossibleSquares.addAll(0, strategy.getValidMoves(board, currentSquare));
+        }
+
+        return allPossibleSquares;
     }
 
     @Override

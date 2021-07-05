@@ -7,6 +7,10 @@ public class Move {
     private Piece pieceMoved;
     private Piece pieceKilled;
 
+    public Player getPlayer() {
+        return player;
+    }
+
     public Move(Player player, Square start, Square end) {
         this.player = player;
         this.start = start;

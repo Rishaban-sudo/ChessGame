@@ -11,6 +11,10 @@ public class Player {
         return points;
     }
 
+    public void setPoints(int points) {
+        this.points += points;
+    }
+
     public Player(String name, boolean whiteSide) {
         this.name = name;
         this.whiteSide = whiteSide;

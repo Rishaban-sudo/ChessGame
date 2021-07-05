@@ -5,11 +5,14 @@ import java.util.List;
 
 public class Pawn extends Piece {
 
+    private int points = 1;
     private boolean initialMove=true;
 
     Pawn(boolean isWhite) {
         super(isWhite);
     }
+
+
 
     @Override
     public boolean isValidMove(Board board,Square start,Square end) {
@@ -30,6 +33,11 @@ public class Pawn extends Piece {
             return true;
         }
         else return x == 1 && y == 1;   //Pawn diagonal movement when killing other Piece
+    }
+
+    @Override
+    public int getPoints() {
+        return points;
     }
 
     private List<MoveStrategy> strategies = new ArrayList<>();

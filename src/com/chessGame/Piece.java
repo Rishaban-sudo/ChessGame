@@ -2,7 +2,6 @@ package com.chessGame;
 
 //denotes a chess Piece such as Pawn,Rook,Knight...
 
-import java.util.HashSet;
 import java.util.List;
 
 public abstract class Piece {
@@ -32,6 +31,8 @@ public abstract class Piece {
     }
 
     public abstract boolean isValidMove(Board board,Square start,Square end);
+
+    public abstract int getPoints();
 
     public abstract List<Square> getValidMoves(Board board, Square currentSquare);
 

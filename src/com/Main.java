@@ -43,7 +43,7 @@ public class Main {
         System.out.println("---------------------------------------------------");
         chessBoard.displayBoard();
 
-        while(true)
+        while(!game.isCheckmate())
         {
             Player player = game.getCurrentTurn();
             System.out.println(player.getName()+" 's turn ");

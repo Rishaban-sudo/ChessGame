@@ -1,5 +1,7 @@
 package com.chessGame;
 
+import com.chessGame.pieces.Piece;
+
 import java.util.Objects;
 
 public class Square {

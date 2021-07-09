@@ -1,29 +1,31 @@
-package com.chessGame;
+package com.chessGame.pieces;
 
+import com.chessGame.*;
+import com.chessGame.pieceStrategies.MoveStrategy;
+import com.chessGame.pieceStrategies.RookStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Knight extends Piece {
+public class Rook extends Piece {
 
-    private int points = 3;
-
-    Knight(boolean isWhite){
+    private int points = 5;
+    public Rook(boolean isWhite) {
         super(isWhite);
     }
 
 
-
     @Override
     public boolean isValidMove(Board board, Square start, Square end) {
-        if(end.getPiece() != null && end.getPiece().isWhite() == this.isWhite()) {
+        if (end.getPiece() != null && end.getPiece().isWhite() == this.isWhite()) {
             return false;
         }
 
-        int x=Math.abs(start.getX()- end.getX());
-        int y=Math.abs(start.getY()- end.getY());
+        int x = Math.abs(start.getX() - end.getX());
+        int y = Math.abs(start.getY() - end.getY());
 
-        return x*y==2;
+        return (x == 0 && y > 0) || (y == 0 && x > 0);
+
     }
 
     @Override
@@ -34,10 +36,9 @@ public class Knight extends Piece {
     private List<MoveStrategy> strategies = new ArrayList<>();
 
     {
-        strategies.add(new KnightStrategy());
+        strategies.add(new RookStrategy());
     }
 
-    @Override
     public List<Square> getValidMoves(Board board, Square currentSquare) {
         List<Square> allPossibleSquares = new ArrayList<>();
 
@@ -51,7 +52,7 @@ public class Knight extends Piece {
 
     @Override
     public String toString() {
-        return "K"+ (  (  this.isWhite() )?"W":"B"  );
+        return "R" + ((this.isWhite()) ? "W" : "B");
     }
 
 }

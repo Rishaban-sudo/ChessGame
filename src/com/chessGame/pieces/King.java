@@ -1,4 +1,9 @@
-package com.chessGame;
+package com.chessGame.pieces;
+
+import com.chessGame.*;
+import com.chessGame.pieceStrategies.KingStrategy;
+import com.chessGame.pieceStrategies.MoveStrategy;
+import com.chessGame.utils.ChessBoard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +12,7 @@ public class King extends Piece {
 
     private int points = 0;
 
-    King(boolean isWhite) {
+    public King(boolean isWhite) {
         super(isWhite);
     }
 

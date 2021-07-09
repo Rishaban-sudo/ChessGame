@@ -1,38 +1,18 @@
-package com.chessGame;
+package com.chessGame.pieces;
+
+
+import com.chessGame.*;
+import com.chessGame.pieceStrategies.BishopStrategy;
+import com.chessGame.pieceStrategies.MoveStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pawn extends Piece {
+public class Bishop extends Piece {
 
-    private int points = 1;
-    private boolean initialMove=true;
-
-    Pawn(boolean isWhite) {
+    private int points=3;
+    public Bishop(boolean isWhite) {
         super(isWhite);
-    }
-
-
-
-    @Override
-    public boolean isValidMove(Board board,Square start,Square end) {
-        if(end.getPiece()!=null && end.getPiece().isWhite() == this.isWhite()) {
-            return false;
-        }
-
-        int x=Math.abs(start.getX()- end.getX());
-        int y=Math.abs(start.getY()- end.getY());
-
-        //Pawn 1 step forward
-        if(x==1 && y==0) {
-            return true;
-        }
-        //Pawn 2 step forward
-        else if(this.initialMove && x==2 && y==0 ) {
-            this.initialMove=false;
-            return true;
-        }
-        else return x == 1 && y == 1;   //Pawn diagonal movement when killing other Piece
     }
 
     @Override
@@ -40,11 +20,24 @@ public class Pawn extends Piece {
         return points;
     }
 
+    @Override
+    public boolean isValidMove(Board board, Square start, Square end) {
+        if(end.getPiece()!=null && end.getPiece().isWhite() == this.isWhite()) {
+            return false;
+        }
+
+        int x=Math.abs(start.getX()- end.getX());
+        int y=Math.abs(start.getY()- end.getY());
+
+        return x==y;
+    }
+
     private List<MoveStrategy> strategies = new ArrayList<>();
 
     {
-        strategies.add(new PawnStrategy());
+        strategies.add(new BishopStrategy());
     }
+
 
 
     @Override
@@ -61,6 +54,7 @@ public class Pawn extends Piece {
 
     @Override
     public String toString() {
-        return "P"+ (  (  this.isWhite() )?"W":"B"  );
+        return "B"+ (  (  this.isWhite() )?"W":"B"  );
     }
+
 }

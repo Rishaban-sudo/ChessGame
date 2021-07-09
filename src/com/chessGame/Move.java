@@ -1,5 +1,7 @@
 package com.chessGame;
 
+import com.chessGame.pieces.Piece;
+
 public class Move {
     private Player player;
     private Square start;

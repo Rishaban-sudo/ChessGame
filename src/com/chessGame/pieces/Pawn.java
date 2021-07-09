@@ -1,20 +1,22 @@
-package com.chessGame;
+package com.chessGame.pieces;
 
+import com.chessGame.*;
+import com.chessGame.pieceStrategies.MoveStrategy;
+import com.chessGame.pieceStrategies.PawnStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bishop extends Piece{
+public class Pawn extends Piece {
 
-    private int points=3;
-    Bishop(boolean isWhite) {
+    private int points = 1;
+    private boolean initialMove=true;
+
+    public Pawn(boolean isWhite) {
         super(isWhite);
     }
 
-    @Override
-    public int getPoints() {
-        return points;
-    }
+
 
     @Override
     public boolean isValidMove(Board board, Square start, Square end) {
@@ -25,15 +27,28 @@ public class Bishop extends Piece{
         int x=Math.abs(start.getX()- end.getX());
         int y=Math.abs(start.getY()- end.getY());
 
-        return x==y;
+        //Pawn 1 step forward
+        if(x==1 && y==0) {
+            return true;
+        }
+        //Pawn 2 step forward
+        else if(this.initialMove && x==2 && y==0 ) {
+            this.initialMove=false;
+            return true;
+        }
+        else return x == 1 && y == 1;   //Pawn diagonal movement when killing other Piece
+    }
+
+    @Override
+    public int getPoints() {
+        return points;
     }
 
     private List<MoveStrategy> strategies = new ArrayList<>();
 
     {
-        strategies.add(new BishopStrategy());
+        strategies.add(new PawnStrategy());
     }
-
 
 
     @Override
@@ -50,7 +65,6 @@ public class Bishop extends Piece{
 
     @Override
     public String toString() {
-        return "B"+ (  (  this.isWhite() )?"W":"B"  );
+        return "P"+ (  (  this.isWhite() )?"W":"B"  );
     }
-
 }

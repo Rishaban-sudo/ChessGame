@@ -1,9 +1,12 @@
-package com.chessGame;
+package com.chessGame.pieceStrategies;
+
+import com.chessGame.Board;
+import com.chessGame.Square;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class PawnStrategy extends MoveStrategy{
+public class PawnStrategy extends MoveStrategy {
 
     @Override
     public List<Square> getValidMoves(Board board, Square currentSquare) {
@@ -11,13 +14,11 @@ public class PawnStrategy extends MoveStrategy{
         int y = currentSquare.getY();
 
         List<Square> possibleSquares = new ArrayList<>();
-        List<Integer> yPossibles = new ArrayList<>(List.of(y+1,y-1));
+        List<Integer> yPossibles = new ArrayList<>(List.of(y + 1, y - 1));
 
-        for(Integer yp : yPossibles)
-        {
+        for (Integer yp : yPossibles) {
             Square suspectSquare = board.getSquare(x, yp);
-            if(suspectSquare!=null && suspectSquare.getPiece()!=null && suspectSquare.getPiece().isWhite()!=currentSquare.getPiece().isWhite())
-            {
+            if (suspectSquare != null && suspectSquare.getPiece() != null && suspectSquare.getPiece().isWhite() != currentSquare.getPiece().isWhite()) {
                 possibleSquares.add(suspectSquare);
             }
         }

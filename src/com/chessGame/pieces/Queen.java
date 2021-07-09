@@ -1,12 +1,17 @@
-package com.chessGame;
+package com.chessGame.pieces;
+
+import com.chessGame.*;
+import com.chessGame.pieceStrategies.BishopStrategy;
+import com.chessGame.pieceStrategies.MoveStrategy;
+import com.chessGame.pieceStrategies.RookStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Queen extends Piece{
+public class Queen extends Piece {
 
     private int points = 9;
-    Queen(boolean isWhite) {
+    public Queen(boolean isWhite) {
         super(isWhite);
     }
 

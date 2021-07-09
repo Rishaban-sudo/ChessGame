@@ -1,5 +1,9 @@
 package com.chessGame;
 
+import com.chessGame.pieces.King;
+import com.chessGame.pieces.Piece;
+import com.chessGame.utils.ChessBoard;
+
 import java.util.*;
 
 public class Game {

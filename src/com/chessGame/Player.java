@@ -7,17 +7,17 @@ public class Player {
     private boolean whiteSide;
     private int points;
 
+    public Player(String name, boolean whiteSide) {
+        this.name = name;
+        this.whiteSide = whiteSide;
+    }
+
     public int getPoints() {
         return points;
     }
 
     public void setPoints(int points) {
         this.points += points;
-    }
-
-    public Player(String name, boolean whiteSide) {
-        this.name = name;
-        this.whiteSide = whiteSide;
     }
 
 

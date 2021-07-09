@@ -1,7 +1,10 @@
 package com.chessGame;
 
+import com.chessGame.pieces.*;
+import com.chessGame.utils.ChessBoard;
+
 public class Board {
-    Square[][] box;
+    public Square[][] box;
 
     public Board() {
         box = new Square[ChessBoard.ROWS][ChessBoard.COLS];

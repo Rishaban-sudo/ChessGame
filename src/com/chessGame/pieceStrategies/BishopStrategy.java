@@ -1,12 +1,16 @@
-package com.chessGame;
+package com.chessGame.pieceStrategies;
+
+import com.chessGame.Board;
+import com.chessGame.utils.Direction;
+import com.chessGame.Square;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BishopStrategy extends MoveStrategy{
+public class BishopStrategy extends MoveStrategy {
 
 
-    public void diagonalSearch(Board board,int x,int y,List<Square> possibleSquares,Direction direction,Square forSquare) {
+    public void diagonalSearch(Board board, int x, int y, List<Square> possibleSquares, Direction direction, Square forSquare) {
         Square sq = board.getSquare(x, y);
 
         if (sq == null || (sq.getPiece() != null && sq.getPiece().isWhite() == forSquare.getPiece().isWhite())) {

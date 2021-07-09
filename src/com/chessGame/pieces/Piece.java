@@ -1,6 +1,9 @@
-package com.chessGame;
+package com.chessGame.pieces;
 
 //denotes a chess Piece such as Pawn,Rook,Knight...
+
+import com.chessGame.Board;
+import com.chessGame.Square;
 
 import java.util.List;
 
@@ -8,9 +11,9 @@ public abstract class Piece {
     private boolean isKilled=false; //status of the piece whether it is alive or not
     private boolean isWhite;        //color of the piece (white/black)
 
-    Piece(){}
+    public Piece(){}
 
-    Piece(boolean isWhite) {
+    public Piece(boolean isWhite) {
         this.isWhite=isWhite;
     }
 
@@ -30,7 +33,7 @@ public abstract class Piece {
         isWhite = white;
     }
 
-    public abstract boolean isValidMove(Board board,Square start,Square end);
+    public abstract boolean isValidMove(Board board, Square start, Square end);
 
     public abstract int getPoints();
 

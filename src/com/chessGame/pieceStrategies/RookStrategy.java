@@ -1,4 +1,8 @@
-package com.chessGame;
+package com.chessGame.pieceStrategies;
+
+import com.chessGame.Board;
+import com.chessGame.utils.Direction;
+import com.chessGame.Square;
 
 import java.util.ArrayList;
 import java.util.List;
